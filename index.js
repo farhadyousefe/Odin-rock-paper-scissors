@@ -56,19 +56,32 @@ function playRound(human, computer) {
   return { humanScore, computerScore };
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    let human = getHumanChoice();
-    let computer = getComputerChoice();
+// function playGame() {
+//   for (let i = 0; i < 5; i++) {
+//     let human = getHumanChoice();
+//     let computer = getComputerChoice();
 
-    ({ humanScore, computerScore } = playRound(human, computer));
-    console.log(humanScore);
-    console.log(computerScore);
-  }
+//     ({ humanScore, computerScore } = playRound(human, computer));
+//     console.log(humanScore);
+//     console.log(computerScore);
+//   }
 
-  console.log("Final Scores:");
-  console.log("Human:", humanScore);
-  console.log("Computer:", computerScore);
-}
+//   console.log("Final Scores:");
+//   console.log("Human:", humanScore);
+//   console.log("Computer:", computerScore);
+// }
 
-playGame();
+// playGame();
+
+// ==============================================
+
+const container = document.querySelector("#container");
+const btnForRock = document.createElement("button");
+const btnForPaper = document.createElement("button");
+const btnForScissor = document.createElement("button");
+
+btnForRock.textContent = "Rock";
+btnForPaper.textContent = "Paper";
+btnForScissor.textContent = "Scissor";
+
+container.append(btnForRock, btnForPaper, btnForScissor);
