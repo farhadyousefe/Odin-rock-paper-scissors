@@ -1,5 +1,9 @@
 /* Style for the RPS game */
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .container {
   width: 90vw;
   height: 30vh;
@@ -48,4 +52,12 @@ div {
   justify-content: center;
   gap: 20px; /* space around vs. */
   font-weight: bold;
+}
+.win {
+  color: #4caf50;
+  font-weight: 700;
+}
+.lost {
+  color: red;
+  font-weight: 700;
 }

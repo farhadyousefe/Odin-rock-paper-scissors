@@ -23,13 +23,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-// function getHumanChoice() {
-//   let userInput = prompt("Please Select from (1, 2, 3):");
-//   let humanChoice = userInput.toLowerCase();
-//   //   console.log(humanChoice);
-//   return humanChoice;
-// }
-
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
 
@@ -48,25 +41,6 @@ function playRound(humanChoice) {
     return `You lose! ${computerChoice} beats ${humanChoice}`;
   }
 }
-
-// function playGame() {
-//   for (let i = 0; i < 5; i++) {
-//     let human = getHumanChoice();
-//     let computer = getComputerChoice();
-
-//     ({ humanScore, computerScore } = playRound(human, computer));
-//     console.log(humanScore);
-//     console.log(computerScore);
-//   }
-
-//   console.log("Final Scores:");
-//   console.log("Human:", humanScore);
-//   console.log("Computer:", computerScore);
-// }
-
-// playGame();
-
-// ==============================================
 
 const container = document.querySelector("#container");
 const btnForRock = document.createElement("button");
@@ -104,8 +78,19 @@ btnForRock.addEventListener("click", () => {
   const computerSpan = document.createElement("span");
   computerSpan.textContent = `Computer Score: ${computerScore}`;
 
+  const finalDiv = document.createElement("div");
+  const finalResult = document.createElement("h3");
+  if (humanScore >= 5) {
+    finalDiv.classList.toggle("win");
+    finalResult.textContent = `Horrah, You Win 😃`;
+  } else if (computerScore >= 5) {
+    finalDiv.classList.toggle("lost");
+    finalResult.textContent = `You lost the Round 😔 `;
+  }
+
   scoreboard.append(humanSpan, vsSpan, computerSpan);
-  resultDiv.append(choiceLine, scoreboard);
+  finalDiv.append(finalResult);
+  resultDiv.append(choiceLine, scoreboard, finalDiv);
 });
 
 // Paper Selection
@@ -130,8 +115,19 @@ btnForPaper.addEventListener("click", () => {
   const computerSpan = document.createElement("span");
   computerSpan.textContent = `Computer Score: ${computerScore}`;
 
+  const finalDiv = document.createElement("div");
+  const finalResult = document.createElement("h3");
+  if (humanScore >= 5) {
+    finalDiv.classList.toggle("win");
+    finalResult.textContent = `Horrah, You Win 😃`;
+  } else if (computerScore >= 5) {
+    finalDiv.classList.toggle("lost");
+    finalResult.textContent = `You lost the Round 😔 `;
+  }
+
   scoreboard.append(humanSpan, vsSpan, computerSpan);
-  resultDiv.append(choiceLine, scoreboard);
+  finalDiv.append(finalResult);
+  resultDiv.append(choiceLine, scoreboard, finalDiv);
 });
 
 // Scissor Selection
@@ -157,6 +153,17 @@ btnForScissor.addEventListener("click", () => {
   const computerSpan = document.createElement("span");
   computerSpan.textContent = `Computer Score: ${computerScore}`;
 
+  const finalDiv = document.createElement("div");
+  const finalResult = document.createElement("h3");
+  if (humanScore >= 5) {
+    finalDiv.classList.toggle("win");
+    finalResult.textContent = `Horrah, You Win 😃`;
+  } else if (computerScore >= 5) {
+    finalDiv.classList.toggle("lost");
+    finalResult.textContent = `You lost the Round 😔 `;
+  }
+
   scoreboard.append(humanSpan, vsSpan, computerSpan);
-  resultDiv.append(choiceLine, scoreboard);
+  finalDiv.append(finalResult);
+  resultDiv.append(choiceLine, scoreboard, finalDiv);
 });
