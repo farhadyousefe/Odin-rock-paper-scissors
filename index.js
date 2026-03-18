@@ -44,7 +44,7 @@ function playRound(humanChoice) {
     humanScore++;
     return `You wil! ${humanChoice} beats ${computerChoice}`;
   } else {
-    computer++;
+    computerScore++;
     return `You lose! ${computerChoice} beats ${humanChoice}`;
   }
 }
@@ -82,15 +82,81 @@ container.append(btnForRock, btnForPaper, btnForScissor);
 const resultDiv = document.createElement("div");
 container.after(resultDiv);
 
+// Rock Selection
+
 btnForRock.addEventListener("click", () => {
-  resultDiv.textContent = "You chose Rock!\n";
-  resultDiv.textContent += `\nYour Score ${humanScore}   vs.   Computer Score ${computerScore}`;
+  const result = playRound("Rock");
+  resultDiv.innerHTML = "";
+
+  const choiceLine = document.createElement("p");
+  choiceLine.textContent = result;
+
+  const scoreboard = document.createElement("div");
+  scoreboard.classList.add("scoreboard");
+
+  const humanSpan = document.createElement("span");
+  humanSpan.textContent = `Your Score: ${humanScore}`;
+
+  const vsSpan = document.createElement("span");
+  vsSpan.textContent = "vs.";
+  vsSpan.classList.add("vs");
+
+  const computerSpan = document.createElement("span");
+  computerSpan.textContent = `Computer Score: ${computerScore}`;
+
+  scoreboard.append(humanSpan, vsSpan, computerSpan);
+  resultDiv.append(choiceLine, scoreboard);
 });
+
+// Paper Selection
 
 btnForPaper.addEventListener("click", () => {
-  resultDiv.textContent = "You chose Paper!";
+  const result = playRound("Paper");
+  resultDiv.innerHTML = "";
+
+  const choiceLine = document.createElement("p");
+  choiceLine.textContent = result;
+
+  const scoreboard = document.createElement("div");
+  scoreboard.classList.add("scoreboard");
+
+  const humanSpan = document.createElement("span");
+  humanSpan.textContent = `Your Score: ${humanScore}`;
+
+  const vsSpan = document.createElement("span");
+  vsSpan.textContent = "vs.";
+  vsSpan.classList.add("vs");
+
+  const computerSpan = document.createElement("span");
+  computerSpan.textContent = `Computer Score: ${computerScore}`;
+
+  scoreboard.append(humanSpan, vsSpan, computerSpan);
+  resultDiv.append(choiceLine, scoreboard);
 });
 
+// Scissor Selection
+
 btnForScissor.addEventListener("click", () => {
-  resultDiv.textContent = "You chose Scissor!";
+  const result = playRound("Scissor");
+
+  resultDiv.innerHTML = "";
+
+  const choiceLine = document.createElement("p");
+  choiceLine.textContent = result;
+
+  const scoreboard = document.createElement("div");
+  scoreboard.classList.add("scoreboard");
+
+  const humanSpan = document.createElement("span");
+  humanSpan.textContent = `Your Score: ${humanScore}`;
+
+  const vsSpan = document.createElement("span");
+  vsSpan.textContent = "vs.";
+  vsSpan.classList.add("vs");
+
+  const computerSpan = document.createElement("span");
+  computerSpan.textContent = `Computer Score: ${computerScore}`;
+
+  scoreboard.append(humanSpan, vsSpan, computerSpan);
+  resultDiv.append(choiceLine, scoreboard);
 });
